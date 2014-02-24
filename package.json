@@ -1,0 +1,23 @@
+{
+  "name": "event-source-emitter",
+  "version": "0.0.0",
+  "description": "server-side EventSource",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sentientwaffle/event-source-emitter.git"
+  },
+  "homepage": "https://github.com/sentientwaffle/event-source-emitter",
+  "keywords": [
+    "eventsource"
+  ],
+  "author": "sentientwaffle",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "tap": "~0.4.8"
+  }
+}
