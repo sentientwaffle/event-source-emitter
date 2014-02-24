@@ -27,20 +27,20 @@ To connect to the EventSource server, use the browser's
 
 # API
 
-## `EventSource(req, res, {keepAlive, onClose})`
+### `EventSource(req, res, {keepAlive, onClose})`
 
   * `keepAlive` - Boolean, default: `false`. If `true`, send a comment every
     15 seconds to guard against timeouts.
   * `onClose`   - Function, called when the connection is terminated.
 
-## `EventSource.emit(event, data)`
+### `EventSource.emit(event, data)`
 
 Send an event down the event stream.
 
-## `EventSource.end()`
+### `EventSource.end()`
 
 Close the connection.
 
-## `EventSource.comment(text)`
+### `EventSource.comment(text)`
 
 Send a message down the event stream. It will be ignored by the receiver.
