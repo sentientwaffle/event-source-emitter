@@ -21,7 +21,8 @@ function EventSource(req, res, options) {
   this.res      = res
   this._onClose = options.onClose || noop
 
-  var onClose = this.onClose.bind(this)
+  var onClose = this.onClose.bind(this),
+    interval = options.interval || 15000
   req.on("aborted", onClose)
      .on("error",   onClose)
   res.on("aborted", onClose)
@@ -32,13 +33,14 @@ function EventSource(req, res, options) {
   res.writeHead(200,
     { "Content-Type":  "text/event-stream"
     , "Cache-Control": "no-cache"
+    , "Connection": "keep-alive"
     })
 
   // Emit an initial chunk to ensure that the headers are sent.
   // Then, send additional data every 15 seconds to keep the connection alive.
   if (options.keepAlive) {
     this.alive()
-    this.interval = setInterval(this.alive.bind(this), 15000)
+    this.interval = setInterval(this.alive.bind(this), interval)
   }
 }
 
