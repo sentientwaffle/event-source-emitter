@@ -33,6 +33,7 @@ function EventSource(req, res, options) {
   res.writeHead(200,
     { "Content-Type":  "text/event-stream"
     , "Cache-Control": "no-cache"
+    , "Connection": "keep-alive"
     })
 
   // Emit an initial chunk to ensure that the headers are sent.
